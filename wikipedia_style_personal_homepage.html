@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>ZENG Xihong - Personal Homepage</title>
+
+  <style>
+
+    @font-face {
+  font-family: "Linux Libertine";
+  src: url("fonts/LinLibertine_R.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Linux Libertine";
+  src: url("fonts/LinLibertine_RB.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Linux Libertine";
+  src: url("fonts/LinLibertine_RI.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Linux Libertine";
+  src: url("fonts/LinLibertine_RBI.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+    :root {
+      --border: #a2a9b1;
+      --light-border: #c8ccd1;
+      --background: #ffffff;
+      --muted-bg: #f8f9fa;
+      --link: #0645ad;
+      --text: #202122;
+      --muted-text: #54595d;
+      --heading-border: #a2a9b1;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: sans-serif;
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 28px 44px;
+    }
+
+    .site-header {
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+    }
+
+    .site-header h1 {
+      font-family: "Linux Libertine", "Georgia", "Times New Roman", serif;
+      font-weight: 400;
+      font-size: 36px;
+      line-height: 1.2;
+      margin: 0 0 4px;
+    }
+
+    .subtitle {
+      color: var(--muted-text);
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr) 300px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .toc,
+    .infobox {
+      border: 1px solid var(--border);
+      background: var(--muted-bg);
+      font-size: 14px;
+    }
+
+    .toc {
+      position: sticky;
+      top: 16px;
+      padding: 12px 14px;
+    }
+
+    .toc-title {
+      text-align: center;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .toc ol {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    .toc li {
+      margin: 4px 0;
+    }
+
+    .content p {
+      margin: 0 0 12px;
+    }
+
+    .content h2 {
+      font-family: "Linux Libertine", "Georgia", "Times New Roman", serif;
+      font-weight: 400;
+      font-size: 23px;
+      line-height: 1.3;
+      border-bottom: 1px solid var(--heading-border);
+      margin: 24px 0 12px;
+      padding-bottom: 2px;
+    }
+
+    .edit-link {
+     font-family: sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      margin-left: 8px;
+    }
+
+    .edit-link a {
+      color: #0645ad;
+    }
+
+    .content h3 {
+      font-family: sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      margin: 18px 0 6px;
+    }
+
+    .content ul {
+      margin-top: 6px;
+      padding-left: 22px;
+    }
+
+    .content li {
+      margin: 5px 0;
+    }
+
+    .note {
+      border-left: 3px solid var(--border);
+      background: var(--muted-bg);
+      padding: 10px 12px;
+      color: var(--muted-text);
+      margin: 14px 0;
+    }
+
+    .infobox {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .infobox-title {
+      background: #eaecf0;
+      text-align: center;
+      font-weight: 700;
+      font-size: 17px;
+      padding: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .portrait {
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .portrait img {
+      width: 180px;
+      height: 220px;
+      object-fit: cover;
+      border: 1px solid var(--light-border);
+      background: #ffffff;
+    }
+
+    .portrait-caption {
+      color: var(--muted-text);
+      font-size: 13px;
+      margin-top: 6px;
+    }
+
+    .info-row {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      border-bottom: 1px solid var(--light-border);
+    }
+
+    .info-label {
+      font-weight: 600;
+      padding: 7px 8px;
+      background: #eaecf0;
+    }
+
+    .info-value {
+      padding: 7px 8px;
+      background: #fff;
+    }
+
+    .wikitable {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 10px 0 18px;
+      font-size: 14px;
+    }
+
+    .wikitable th,
+    .wikitable td {
+      border: 1px solid var(--border);
+      padding: 7px 9px;
+      vertical-align: top;
+    }
+
+    .wikitable th {
+      background: #eaecf0;
+      text-align: left;
+    }
+
+    .project-meta {
+      color: var(--muted-text);
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      color: var(--muted-text);
+      font-size: 13px;
+      margin-top: 32px;
+      padding-top: 12px;
+    }
+
+    @media (max-width: 960px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .toc {
+        position: static;
+      }
+
+      .infobox {
+        max-width: 420px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        padding: 18px 16px 36px;
+      }
+
+      .site-header h1 {
+        font-size: 32px;
+      }
+
+      .info-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <header class="site-header">
+      <h1>ZENG Xihong</h1>
+      <p class="subtitle">Bioscience Undergraduate · Huazhong University of Science and Technology</p>
+    </header>
+
+    <div class="layout">
+      <nav class="toc" aria-label="Table of contents">
+        <div class="toc-title">Contents</div>
+        <ol>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#awards">Honors and awards</a></li>
+          <li><a href="#activities">Activities</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ol>
+      </nav>
+
+      <article class="content">
+        <section id="overview">
+          <p>
+             <strong>ZENG Xihong</strong> is an undergraduate student majoring in Bioscience at Huazhong University of Science and Technology.
+  His research interests have evolved throughout his undergraduate studies, and currently focus on computational structural biology
+  and protein design.
+          </p>
+
+          <p>
+            He hopes to see the world as it is and to love it.
+          </p>
+
+        </section>
+
+        <section id="education">
+          <h2>Education <span class="edit-link"><a href="#">[edit]</a></span></h2>
+          <p>
+            <strong>Huazhong University of Science and Technology</strong>, Wuhan, China<br />
+            Bachelor of Science, majoring in Bioscience, 2023–2027
+          </p>
+
+          <table class="wikitable">
+            <tr>
+              <th>GPA</th>
+              <td>4.46 / 5.0</td>
+            </tr>
+            <tr>
+              <th>Ranking</th>
+              <td>5 / 53</td>
+            </tr>
+            <tr>
+              <th>Selected coursework</th>
+              <td>
+                Biochemistry, Bioinformatics, Cellular Biology, Protein and Enzyme Engineering,
+                Analysis and Visualization of Multiomics Data, Biostatistics
+              </td>
+            </tr>
+          </table>
+        </section>
+
+        <section id="research">
+          <h2>Research <span class="edit-link"><a href="javascript:void(0)">[edit]</a></span></h2>
+
+          <h3>Metabolically Coupled Dual-Strain System for Microplastic Conversion</h3>
+          <div class="project-meta">Dec 2023 – Oct 2024 · Synthetic biology · Environmental biotechnology</div>
+          <p>
+            This project developed a metabolically coupled dual-strain system integrating PET microplastic degradation
+            with rhamnolipid biosynthesis, aiming to convert plastic waste into value-added products. The work involved
+            engineering <em>Escherichia coli</em> for PET-degrading enzyme expression and optimizing metabolic pathways
+            in <em>Pseudomonas putida</em> for conversion of degradation intermediates.
+          </p>
+          <p>Zeng's contributions included project design and molecular biology experiments.</p>
+
+          <h3>Multi-omics Analysis of Salt-Alkali Resistance Mechanisms in Wheat</h3>
+          <div class="project-meta">Jun 2025 – Mar 2026 · Multi-omics · Plant stress tolerance · Bioinformatics</div>
+          <p>
+            This research investigated salt-alkali stress responses in wheat through comparative transcriptomic analysis
+            of the standard strain L88-31 and the salt-tolerant strain Dekang 961. The study integrated multi-omics analysis,
+            transcription factor enrichment, STEM clustering, GWAS analysis, and single-cell marker enrichment to identify
+            candidate genes and infer tissue-specific roles in stress tolerance.
+          </p>
+          <p>Zeng's contributions included data analysis and data visualization.</p>
+
+          <h3>Regulatory Mechanisms of PKS in Lipid Synthesis in <em>Schizochytrium</em></h3>
+          <div class="project-meta">Oct 2024 – May 2025 · Microbial lipid metabolism · Bioinformatics · Molecular biology</div>
+          <p>
+            This project investigated the regulatory role of multifunctional polyketide synthase in lipid biosynthesis
+            in <em>Schizochytrium</em>, with a focus on the functional significance of its modular architecture. The work
+            applied bioinformatics analysis to the enoyl reductase domain and constructed knockout strains to evaluate
+            its role in lipid biosynthesis.
+          </p>
+          <p>Zeng's contributions included molecular biology experiments.</p>
+        </section>
+
+        <section id="projects">
+          <h2>Projects <span class="edit-link"><a href="javascript:void(0)">[edit]</a></span></h2>
+          <h3>Application and Promotion of a Rapid Drug Detection System Based on Nanomaterials and AI</h3>
+          <div class="project-meta">May 2025 – Oct 2025 · Nanomaterial sensing · AI analysis · Public-sector application</div>
+          <p>
+            This project developed and promoted a rapid drug detection system for drug control applications. The system used
+            nanomaterial-based sensing, AI-driven analysis, and data management to enable saliva-based testing within 10 seconds
+            and result interpretation within 1 minute.
+          </p>
+          <p>
+            The system has been piloted in more than 20 cities, with over 100,000 tests conducted and 100 drug users identified.
+            Compared with traditional methods, the detection speed and sensitivity increased by 10 times and 100 times respectively.
+          </p>
+          <p>
+            Zeng's contributions included business plan development, material organization, content writing, and participation
+            in product promotion for government sectors.
+          </p>
+        </section>
+
+        <section id="awards">
+          <h2>Honors and awards <span class="edit-link"><a href="javascript:void(0)">[edit]</a></span></h2>
+
+          <table class="wikitable">
+            <tr>
+              <th>Year</th>
+              <th>Award</th>
+            </tr>
+            <tr>
+              <td>2025</td>
+              <td>National Scholarship</td>
+            </tr>
+            <tr>
+              <td>2025</td>
+              <td>Merit Student</td>
+            </tr>
+            <tr>
+              <td>2025</td>
+              <td>Outstanding Docent, HUST History Museum</td>
+            </tr>
+            <tr>
+              <td>2025</td>
+              <td>China International College Students' Innovation Competition, National Bronze Award</td>
+            </tr>
+            <tr>
+              <td>2025</td>
+              <td>China International College Students' Innovation Competition, Hubei Provincial Gold Award</td>
+            </tr>
+            <tr>
+              <td>2025</td>
+              <td>Scholarship for Academic Excellence</td>
+            </tr>
+            <tr>
+              <td>2024–2025</td>
+              <td>Scholarship for Self-improvement</td>
+            </tr>
+            <tr>
+              <td>2024</td>
+              <td>Scholarship for Community Engagement</td>
+            </tr>
+            <tr>
+              <td>2024</td>
+              <td>iGEM Competition Silver Medal and iGEMers Prize</td>
+            </tr>
+          </table>
+        </section>
+
+        <section id="activities">
+         <h2>Extracurricular activities <span class="edit-link"><a href="javascript:void(0)">[edit]</a></span></h2>
+
+          <h3>Docent, HUST History Museum</h3>
+          <div class="project-meta">Apr 2023 – Present</div>
+          <p>
+            Delivered guided tours to over 1,000 visitors, including freshmen, alumni, and external guests,
+            tailoring content and presentation style to different audiences.
+          </p>
+
+          <h3>Volunteer Department, School of Economics</h3>
+          <div class="project-meta">Sep 2023 – Oct 2024</div>
+          <p>
+            Coordinated volunteer programs at the university archives, including volunteer recruitment,
+            activity scheduling, and service hour documentation. Assisted with campus charity sales to support
+            teaching programs for left-behind children in rural areas.
+          </p>
+
+          <h3>Publicity Department, HUST History Museum</h3>
+          <div class="project-meta">Mar 2024 – Oct 2024</div>
+          <p>
+            Wrote and formatted articles for the official WeChat public account of the school history museum.
+            Assisted with docent recruitment and training for new docents.
+          </p>
+        </section>
+
+        <section id="skills">
+          <h2>Skills <span class="edit-link"><a href="javascript:void(0)">[edit]</a></span></h2>
+
+          <table class="wikitable">
+            <tr>
+              <th>Programming</th>
+              <td>Python for data processing and visualization; R for statistical analysis</td>
+            </tr>
+            <tr>
+              <th>Data analysis</th>
+              <td>
+                Transcriptomic and metabolomic data analysis, differential expression analysis,
+                functional enrichment analysis
+              </td>
+            </tr>
+            <tr>
+              <th>Laboratory skills</th>
+              <td>Molecular cloning, PCR, gel electrophoresis, microbial culture, genetic transformation</td>
+            </tr>
+            <tr>
+              <th>Languages</th>
+              <td>Chinese native; English for academic reading and writing</td>
+            </tr>
+            <tr>
+              <th>Certifications</th>
+              <td>CET-4: 592; CET-6: 562; National Computer Rank Examination Level 3</td>
+            </tr>
+          </table>
+        </section>
+
+        <section id="contact">
+          <h2>Contact <span class="edit-link"><a href="javascript:void(0)">[edit]</a></span></h2>
+          <p>Email: <a href="u202316436@hust.edu.cn">u202316436@hust.edu.cn</a></p>
+          <p>
+            External links:
+          <a href="cv.pdf" target="_blank">CV PDF</a>
+          </p>
+        </section>
+
+        <footer class="footer">
+          <p>This personal homepage is maintained by ZENG Xihong. Last updated: 2026.</p>
+        </footer>
+      </article>
+
+      <aside class="infobox" aria-label="Personal information">
+        <div class="infobox-title">ZENG Xihong</div>
+
+        <div class="portrait">
+          <img src="portrait.jpg" alt="Portrait of ZENG Xihong" />
+          <div class="portrait-caption">Portrait</div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-label">Affiliation</div>
+          <div class="info-value">Huazhong University of Science and Technology</div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-label">Major</div>
+          <div class="info-value">Bioscience</div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-label">Degree</div>
+          <div class="info-value">B.S. candidate, 2023–2027</div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-label">Fields</div>
+          <div class="info-value">Bioinformatics; multi-omics; synthetic biology; environmental biotechnology</div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-label">Languages</div>
+          <div class="info-value">Chinese; English</div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-label">Email</div>
+          <div class="info-value">
+            <a href="u202316436@hust.edu.cn">u202316436@hust.edu.cn</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>
